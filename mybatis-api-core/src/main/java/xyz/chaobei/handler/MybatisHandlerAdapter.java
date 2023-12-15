@@ -1,29 +1,27 @@
-package chaobei.xyz.config;
+package xyz.chaobei.handler;
 
-import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerAdapter;
 import org.springframework.web.servlet.ModelAndView;
+import xyz.chaobei.MybatisApiContext;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+public class MybatisHandlerAdapter implements HandlerAdapter {
 
-@Component
-public class MyHandlerAdapter implements HandlerAdapter {
+    private final MybatisApiContext context;
+
+    public MybatisHandlerAdapter(MybatisApiContext context) {
+        this.context = context;
+    }
 
     @Override
     public boolean supports(Object handler) {
-        return handler instanceof MyHandler;
+        return handler instanceof MybatisHandlerMapping;
     }
 
     @Override
     public ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-
-        Object obj = ((MyHandler)handler).handler();
-
-        System.out.println(obj);
-        response.getWriter().println("jel");
-
         return null;
     }
 

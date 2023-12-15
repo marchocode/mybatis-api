@@ -4,10 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>chaobei.xyz</groupId>
+  <groupId>xyz.chaobei</groupId>
   <artifactId>mybatis-api</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
+
   <modules>
     <module>mybatis-api-core</module>
     <module>mybatis-api-demo</module>
@@ -21,6 +22,13 @@
 
   <dependencyManagement>
     <dependencies>
+
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>2.3.1</version>
+      </dependency>
+
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
