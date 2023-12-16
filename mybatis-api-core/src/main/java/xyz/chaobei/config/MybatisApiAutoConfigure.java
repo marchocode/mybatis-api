@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import xyz.chaobei.MybatisApiContext;
+import xyz.chaobei.handler.MybatisHandlerAdapter;
 import xyz.chaobei.handler.MybatisHandlerMapping;
 
 @Configuration
@@ -24,6 +25,11 @@ public class MybatisApiAutoConfigure {
     @Bean
     public MybatisHandlerMapping mybatisHandlerMapping(MybatisApiContext mybatisApiContext) {
         return new MybatisHandlerMapping(mybatisApiContext);
+    }
+
+    @Bean
+    public MybatisHandlerAdapter mybatisHandlerAdapter(MybatisApiContext mybatisApiContext) {
+        return new MybatisHandlerAdapter(mybatisApiContext);
     }
 
 }

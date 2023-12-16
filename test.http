@@ -1,2 +1,6 @@
 ### hello
-http://localhost:8080/desc
+http://192.168.1.207:8080/hello
+
+
+### mybatis-api
+http://192.168.1.207:8080/test/list
