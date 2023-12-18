@@ -1,6 +1,6 @@
 package xyz.chaobei.handler;
 
-import com.alibaba.fastjson2.JSON;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +16,7 @@ public class MybatisHandlerMethod  {
     private final Method targetMethod;
     private final Class<?> targetClass;
     private final Logger logger = LoggerFactory.getLogger(MybatisHandlerMethod.class);
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     public MybatisHandlerMethod(MybatisApiContext context, Method targetMethod, Class<?> targetClass) {
         this.context = context;
@@ -32,7 +33,8 @@ public class MybatisHandlerMethod  {
         // write to response.
         logger.info("receive data = {}", data);
 
-        byte[] bytes = JSON.toJSONBytes(data);
+        byte[] bytes =  objectMapper.writeValueAsBytes(data);
+
         response.getOutputStream().write(bytes);
         response.addHeader("Content-Type","application/json");
         response.setContentLength(bytes.length);
