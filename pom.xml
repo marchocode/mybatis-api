@@ -24,6 +24,14 @@
     <spring-boot.version>2.7.16</spring-boot.version>
   </properties>
 
+  <distributionManagement>
+    <repository>
+      <id>reposilite-repository-releases</id>
+      <name>Reposilite Repository</name>
+      <url>https://reposilite.chaobei.xyz/releases</url>
+    </repository>
+  </distributionManagement>
+
   <dependencyManagement>
     <dependencies>
 
